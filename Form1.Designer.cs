@@ -29,6 +29,14 @@
         private void InitializeComponent()
         {
             dataGridView1 = new DataGridView();
+            Column1 = new DataGridViewTextBoxColumn();
+            Column2 = new DataGridViewTextBoxColumn();
+            Column4 = new DataGridViewTextBoxColumn();
+            Column5 = new DataGridViewTextBoxColumn();
+            Column6 = new DataGridViewTextBoxColumn();
+            Column7 = new DataGridViewTextBoxColumn();
+            Column8 = new DataGridViewButtonColumn();
+            Column9 = new DataGridViewButtonColumn();
             label1 = new Label();
             label2 = new Label();
             label3 = new Label();
@@ -40,17 +48,83 @@
             textBox4 = new TextBox();
             textBox5 = new TextBox();
             button1 = new Button();
+            Column3 = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(12, 260);
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column4, Column5, Column6, Column7, Column8, Column9, Column3 });
+            dataGridView1.Location = new Point(2, 253);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 51;
             dataGridView1.Size = new Size(776, 162);
             dataGridView1.TabIndex = 0;
+            // 
+            // Column1
+            // 
+            Column1.HeaderText = "No";
+            Column1.MinimumWidth = 6;
+            Column1.Name = "Column1";
+            Column1.Width = 50;
+            // 
+            // Column2
+            // 
+            Column2.HeaderText = "Nama barang";
+            Column2.MinimumWidth = 6;
+            Column2.Name = "Column2";
+            Column2.Width = 125;
+            // 
+            // Column4
+            // 
+            Column4.HeaderText = "Stok";
+            Column4.MinimumWidth = 6;
+            Column4.Name = "Column4";
+            Column4.Width = 75;
+            // 
+            // Column5
+            // 
+            Column5.HeaderText = "Harga Beli";
+            Column5.MinimumWidth = 6;
+            Column5.Name = "Column5";
+            Column5.Width = 75;
+            // 
+            // Column6
+            // 
+            Column6.HeaderText = "Harga Jual";
+            Column6.MinimumWidth = 6;
+            Column6.Name = "Column6";
+            Column6.Width = 75;
+            // 
+            // Column7
+            // 
+            Column7.HeaderText = "Satuan";
+            Column7.MinimumWidth = 6;
+            Column7.Name = "Column7";
+            Column7.Width = 125;
+            // 
+            // Column8
+            // 
+            Column8.HeaderText = "Edit";
+            Column8.MinimumWidth = 6;
+            Column8.Name = "Column8";
+            Column8.Resizable = DataGridViewTriState.True;
+            Column8.SortMode = DataGridViewColumnSortMode.Automatic;
+            Column8.Text = "Edit";
+            Column8.UseColumnTextForButtonValue = true;
+            Column8.Width = 125;
+            // 
+            // Column9
+            // 
+            Column9.HeaderText = "Hapus";
+            Column9.MinimumWidth = 6;
+            Column9.Name = "Column9";
+            Column9.Resizable = DataGridViewTriState.True;
+            Column9.SortMode = DataGridViewColumnSortMode.Automatic;
+            Column9.Text = "Hapus";
+            Column9.UseColumnTextForButtonValue = true;
+            Column9.Width = 125;
             // 
             // label1
             // 
@@ -142,6 +216,14 @@
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
+            // Column3
+            // 
+            Column3.HeaderText = "id";
+            Column3.MinimumWidth = 6;
+            Column3.Name = "Column3";
+            Column3.Visible = false;
+            Column3.Width = 125;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -160,6 +242,7 @@
             Controls.Add(label1);
             Controls.Add(dataGridView1);
             Name = "Form1";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "CRUD";
             Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
@@ -181,5 +264,14 @@
         private TextBox textBox4;
         private TextBox textBox5;
         private Button button1;
+        private DataGridViewTextBoxColumn Column1;
+        private DataGridViewTextBoxColumn Column2;
+        private DataGridViewTextBoxColumn Column4;
+        private DataGridViewTextBoxColumn Column5;
+        private DataGridViewTextBoxColumn Column6;
+        private DataGridViewTextBoxColumn Column7;
+        private DataGridViewButtonColumn Column8;
+        private DataGridViewButtonColumn Column9;
+        private DataGridViewTextBoxColumn Column3;
     }
 }
