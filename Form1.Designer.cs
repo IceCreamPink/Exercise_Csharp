@@ -35,8 +35,9 @@
             Column5 = new DataGridViewTextBoxColumn();
             Column6 = new DataGridViewTextBoxColumn();
             Column7 = new DataGridViewTextBoxColumn();
-            Column8 = new DataGridViewButtonColumn();
+            edit = new DataGridViewButtonColumn();
             Column9 = new DataGridViewButtonColumn();
+            Column3 = new DataGridViewTextBoxColumn();
             label1 = new Label();
             label2 = new Label();
             label3 = new Label();
@@ -48,22 +49,27 @@
             textBox4 = new TextBox();
             textBox5 = new TextBox();
             button1 = new Button();
-            Column3 = new DataGridViewTextBoxColumn();
+            button2 = new Button();
+            //textBox6 = new TextBox();
+            //label6 = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // dataGridView1
             // 
+            dataGridView1.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Sunken;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column4, Column5, Column6, Column7, Column8, Column9, Column3 });
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column4, Column5, Column6, Column7, edit, Column9, Column3 });
             dataGridView1.Location = new Point(2, 253);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 51;
             dataGridView1.Size = new Size(776, 162);
             dataGridView1.TabIndex = 0;
+            dataGridView1.CellClick += dataGridView1_CellContentClick;
             // 
             // Column1
             // 
+            Column1.Frozen = true;
             Column1.HeaderText = "No";
             Column1.MinimumWidth = 6;
             Column1.Name = "Column1";
@@ -104,16 +110,16 @@
             Column7.Name = "Column7";
             Column7.Width = 125;
             // 
-            // Column8
+            // edit
             // 
-            Column8.HeaderText = "Edit";
-            Column8.MinimumWidth = 6;
-            Column8.Name = "Column8";
-            Column8.Resizable = DataGridViewTriState.True;
-            Column8.SortMode = DataGridViewColumnSortMode.Automatic;
-            Column8.Text = "Edit";
-            Column8.UseColumnTextForButtonValue = true;
-            Column8.Width = 125;
+            edit.HeaderText = "Edit";
+            edit.MinimumWidth = 6;
+            edit.Name = "edit";
+            edit.Resizable = DataGridViewTriState.True;
+            edit.SortMode = DataGridViewColumnSortMode.Automatic;
+            edit.Text = "Edit";
+            edit.UseColumnTextForButtonValue = true;
+            edit.Width = 125;
             // 
             // Column9
             // 
@@ -125,6 +131,14 @@
             Column9.Text = "Hapus";
             Column9.UseColumnTextForButtonValue = true;
             Column9.Width = 125;
+            // 
+            // Column3
+            // 
+            Column3.HeaderText = "id";
+            Column3.MinimumWidth = 6;
+            Column3.Name = "Column3";
+            Column3.Visible = false;
+            Column3.Width = 125;
             // 
             // label1
             // 
@@ -208,7 +222,7 @@
             // 
             // button1
             // 
-            button1.Location = new Point(508, 164);
+            button1.Location = new Point(423, 160);
             button1.Name = "button1";
             button1.Size = new Size(114, 41);
             button1.TabIndex = 11;
@@ -216,19 +230,43 @@
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
-            // Column3
+            // button2
             // 
-            Column3.HeaderText = "id";
-            Column3.MinimumWidth = 6;
-            Column3.Name = "Column3";
-            Column3.Visible = false;
-            Column3.Width = 125;
+            button2.Location = new Point(584, 160);
+            button2.Name = "button2";
+            button2.Size = new Size(114, 41);
+            button2.TabIndex = 12;
+            button2.Text = "Cancel";
+            button2.UseVisualStyleBackColor = true;
+            button2.Visible = false;
+            button2.Click += button2_Click;
+            // 
+            // textBox6
+            // 
+            //textBox6.Location = new Point(508, 115);
+            //textBox6.Name = "textBox6";
+            //textBox6.Size = new Size(181, 27);
+            //textBox6.TabIndex = 13;
+            //textBox6.Visible = false;
+            // 
+            // label6
+            // 
+            //label6.AutoSize = true;
+            //label6.Location = new Point(423, 122);
+            //label6.Name = "label6";
+            //label6.Size = new Size(24, 20);
+            //label6.TabIndex = 14;
+            //label6.Text = "ID";
+            //label6.Visible = false;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            //Controls.Add(this.label6);
+            //Controls.Add(this.textBox6);
+            Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(textBox5);
             Controls.Add(textBox4);
@@ -270,8 +308,9 @@
         private DataGridViewTextBoxColumn Column5;
         private DataGridViewTextBoxColumn Column6;
         private DataGridViewTextBoxColumn Column7;
-        private DataGridViewButtonColumn Column8;
+        private DataGridViewButtonColumn edit;
         private DataGridViewButtonColumn Column9;
         private DataGridViewTextBoxColumn Column3;
+        private Button button2;
     }
 }

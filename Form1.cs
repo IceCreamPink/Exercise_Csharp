@@ -6,8 +6,6 @@ namespace Latihan1
     public partial class Form1 : Form
     {
         private SqlCommand cmd;
-        private DataSet ds;
-        private SqlDataAdapter da;
         private SqlDataReader dr;
 
 
@@ -20,6 +18,8 @@ namespace Latihan1
             textBox3.Text = "";
             textBox4.Text = "";
             textBox5.Text = "";
+            button1.Text = "Send";
+            button2.Visible = false;
         }
 
         public Form1()
@@ -52,12 +52,6 @@ namespace Latihan1
                         row.Cells[8].Value = dr["id_barang"].ToString();
                     }
                 }
-                //ds = new DataSet();
-                //da = new SqlDataAdapter(cmd);
-                //da.Fill(ds, "barang");
-                //dataGridView1.DataSource = ds;
-                //dataGridView1.DataMember = "barang";
-                //dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             }
             catch (Exception G)
             {
@@ -73,7 +67,6 @@ namespace Latihan1
             TampilBarang();
             Bersihkan();
         }
-
         private void button1_Click(object sender, EventArgs e)
         {
 
@@ -102,12 +95,58 @@ namespace Latihan1
                     }
                 }
                 else
+                //update
                 {
-                    //update
+                    if (button1.Text == "Update")
+                    {
+                        try
+                        {
+                            cmd = new SqlCommand("UPDATE barang SET nama_barang ='" + textBox1.Text + "',stok ='" + textBox2.Text + "',harga_beli ='" + textBox4.Text + "',harga_jual ='" + textBox5.Text + "',satuan ='" + textBox3.Text + "')", conn);
+                            conn.Open();
+                            cmd.ExecuteNonQuery();
+                            MessageBox.Show("Isert data Berhasil");
+                            TampilBarang();
+                            Bersihkan();
+                        }
+                        catch (Exception X)
+                        {
+                            MessageBox.Show(X.ToString());
+                        }
+                    }
                 }
+
 
             }
         }
 
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dataGridView1.Columns[e.ColumnIndex] is DataGridViewButtonColumn && e.RowIndex >= 0)
+            {
+                if (e.ColumnIndex == 6)
+                {
+
+                    DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
+
+                    textBox1.Text = row.Cells[1].Value.ToString();
+                    textBox2.Text = row.Cells[2].Value.ToString();
+                    textBox3.Text = row.Cells[3].Value.ToString();
+                    textBox4.Text = row.Cells[4].Value.ToString();
+                    textBox5.Text = row.Cells[5].Value.ToString();
+                    button1.Text = "Update";
+                    button2.Visible = true;
+                }
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Bersihkan();
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
