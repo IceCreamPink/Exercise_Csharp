@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             dataGridView1 = new DataGridView();
             Column1 = new DataGridViewTextBoxColumn();
             Column2 = new DataGridViewTextBoxColumn();
@@ -50,18 +51,25 @@
             textBox5 = new TextBox();
             button1 = new Button();
             button2 = new Button();
-            //textBox6 = new TextBox();
-            //label6 = new Label();
+            textBox6 = new TextBox();
+            label6 = new Label();
+            label7 = new Label();
+            textBox7 = new TextBox();
+            label8 = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // dataGridView1
             // 
-            dataGridView1.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Sunken;
+            dataGridView1.BorderStyle = BorderStyle.None;
+            dataGridView1.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column4, Column5, Column6, Column7, edit, Column9, Column3 });
-            dataGridView1.Location = new Point(2, 253);
+            dataGridView1.EnableHeadersVisualStyles = false;
+            dataGridView1.Location = new Point(12, 276);
             dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataGridView1.RowHeadersVisible = false;
             dataGridView1.RowHeadersWidth = 51;
             dataGridView1.Size = new Size(776, 162);
             dataGridView1.TabIndex = 0;
@@ -170,7 +178,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(423, 49);
+            label4.Location = new Point(448, 49);
             label4.Name = "label4";
             label4.Size = new Size(79, 20);
             label4.TabIndex = 4;
@@ -179,7 +187,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(423, 85);
+            label5.Location = new Point(448, 86);
             label5.Name = "label5";
             label5.Size = new Size(54, 20);
             label5.TabIndex = 5;
@@ -201,7 +209,7 @@
             // 
             // textBox3
             // 
-            textBox3.Location = new Point(508, 82);
+            textBox3.Location = new Point(567, 79);
             textBox3.Name = "textBox3";
             textBox3.Size = new Size(181, 27);
             textBox3.TabIndex = 8;
@@ -215,14 +223,14 @@
             // 
             // textBox5
             // 
-            textBox5.Location = new Point(508, 42);
+            textBox5.Location = new Point(567, 42);
             textBox5.Name = "textBox5";
             textBox5.Size = new Size(181, 27);
             textBox5.TabIndex = 10;
             // 
             // button1
             // 
-            button1.Location = new Point(423, 160);
+            button1.Location = new Point(479, 172);
             button1.Name = "button1";
             button1.Size = new Size(114, 41);
             button1.TabIndex = 11;
@@ -232,7 +240,7 @@
             // 
             // button2
             // 
-            button2.Location = new Point(584, 160);
+            button2.Location = new Point(634, 172);
             button2.Name = "button2";
             button2.Size = new Size(114, 41);
             button2.TabIndex = 12;
@@ -243,29 +251,60 @@
             // 
             // textBox6
             // 
-            //textBox6.Location = new Point(508, 115);
-            //textBox6.Name = "textBox6";
-            //textBox6.Size = new Size(181, 27);
-            //textBox6.TabIndex = 13;
-            //textBox6.Visible = false;
+            textBox6.Location = new Point(562, 115);
+            textBox6.Name = "textBox6";
+            textBox6.Size = new Size(31, 27);
+            textBox6.TabIndex = 13;
+            textBox6.Visible = false;
             // 
             // label6
             // 
-            //label6.AutoSize = true;
-            //label6.Location = new Point(423, 122);
-            //label6.Name = "label6";
-            //label6.Size = new Size(24, 20);
-            //label6.TabIndex = 14;
-            //label6.Text = "ID";
-            //label6.Visible = false;
+            label6.AutoSize = true;
+            label6.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label6.Location = new Point(22, 10);
+            label6.Name = "label6";
+            label6.Size = new Size(54, 23);
+            label6.TabIndex = 14;
+            label6.Text = "Judul";
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label7.Location = new Point(22, 229);
+            label7.Name = "label7";
+            label7.Size = new Size(120, 23);
+            label7.TabIndex = 15;
+            label7.Text = "Data Barang :";
+            // 
+            // textBox7
+            // 
+            textBox7.BorderStyle = BorderStyle.FixedSingle;
+            textBox7.Location = new Point(575, 229);
+            textBox7.Name = "textBox7";
+            textBox7.Size = new Size(183, 27);
+            textBox7.TabIndex = 16;
+            textBox7.TextChanged += textBox7_TextChanged;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Location = new Point(527, 232);
+            label8.Name = "label8";
+            label8.Size = new Size(42, 20);
+            label8.TabIndex = 17;
+            label8.Text = "Cari :";
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            //Controls.Add(this.label6);
-            //Controls.Add(this.textBox6);
+            Controls.Add(label8);
+            Controls.Add(textBox7);
+            Controls.Add(label7);
+            Controls.Add(label6);
+            Controls.Add(textBox6);
             Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(textBox5);
@@ -279,6 +318,7 @@
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(dataGridView1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Form1";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "CRUD";
@@ -312,5 +352,10 @@
         private DataGridViewButtonColumn Column9;
         private DataGridViewTextBoxColumn Column3;
         private Button button2;
+        private TextBox textBox6;
+        private Label label6;
+        private Label label7;
+        private TextBox textBox7;
+        private Label label8;
     }
 }
