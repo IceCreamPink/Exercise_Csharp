@@ -117,37 +117,44 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="Column1.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="button5.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAB
+        EgAAARIBezqkZAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAJKSURBVFhHvddL
+        yIxRHMfxcUluuSzkloRYIbcVSonIwkJZkoQNCTuXDQu3BYmdkrIQO2FlhZ2wwE7YyEJKrknE9/u88+99
+        3mnmmTlnHn71aeaM5znnP88575mjkZl5uIVP+IAbmIX/ksl4h/c4jjP4jFcYg3+S1biLe3iG31iEyAb8
+        wRN4zR2sQm05Agd4isfwW7fmKvw3r/Fa78nKJJzFQ9ih3sJOx6NbvMZrvSfuty+LnojKOIcv8BMP4OPU
+        S6QW4D1xv33Z53NUrpOd8OaNRWswMQULMbcLr/Ha1inYBD/fUbQ65Dy+DbwdkkPw5hQH0Rr7doyOuYAv
+        A2+HZAK2Y0+PtqHddNm3Y3RMpwLqSt8FDMMKDC9a6UkuwIFisBG4Aud3mR9kJLkAN5dHmAL3ewf379kn
+        MRW70G4NlJV3zOQC1uMH/MzBjyGyG7Hiq/glIskFmM34iP1Fa2jcNf1xquLURbIKMD7yOpJdQDkzm685
+        6buAU3Belxat9CQXcBG3Mbb5PhaV8+ruuAVbu5iNSHIBduDhwxOQg19CrIe9iJVe5ToiyQUYfyF/4WTR
+        Gowb1BIs72IcIlkFmF7OAb0ku4ByRjdfc9J3AQfgyWZx0UpPcgEncBkjcRQuKk+8o5rWYF0X7oaR5AJi
+        v/ec6OtNOLDZh1jpVfr+K4jj2DX4JCLuDWvR7luXTUMkqwAzB3X8HmQXUFe6FuBR2p1vetGqNzNg34eL
+        VocswFe8xjmcrol9vYFPYD4qsxL+T+Y7Wld0Lvu6D/supdH4CxPs/eQUVVH1AAAAAElFTkSuQmCC
+</value>
+  </data>
+  <metadata name="Sidebartime.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
   </metadata>
-  <metadata name="Column2.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Column4.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="Column6.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <metadata name="Column5.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="Column6.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Column7.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="edit.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Column9.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="Column4.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <metadata name="Column3.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="Column8.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="Column2.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <metadata name="Column1.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAEAICAAAAEAIACoEAAAFgAAACgAAAAgAAAAQAAAAAEAIAAAAAAAABAAANcNAADXDQAAAAAAAAAA

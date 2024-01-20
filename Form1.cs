@@ -9,13 +9,23 @@ namespace Latihan1
         private SqlDataReader dr;
 
 
-       Koneksi konn = new Koneksi();
+        static Koneksi konn = new Koneksi();
 
+        private SqlConnection conn = konn.getConn();
+
+        void combobox()
+        {
+            comboBox1.Items.Add("pcs");
+            comboBox1.Items.Add("unit");
+            comboBox1.Items.Add("box");
+            comboBox1.Items.Add("lembar");
+            comboBox1.Items.Add("buah");
+        }
         void Bersihkan()
         {
             textBox1.Text = "";
             textBox2.Text = "";
-            textBox3.Text = "";
+            comboBox1.Text = "";
             textBox4.Text = "";
             textBox5.Text = "";
             textBox7.Text = "";
@@ -29,13 +39,11 @@ namespace Latihan1
             InitializeComponent();
         }
 
-        void TampilBarang()
+       public void TampilBarang()
         {
             dataGridView1.Rows.Clear();
-            SqlConnection conn = konn.getConn();
             try
             {
-                conn.Open();
                 cmd = new SqlCommand("SELECT * FROM barang", conn);
                 dr = cmd.ExecuteReader();
                 if (dr.HasRows)
@@ -54,6 +62,7 @@ namespace Latihan1
                         row.Cells[8].Value = dr["id_barang"].ToString();
                     }
                 }
+                dr.Close();
             }
             catch (Exception G)
             {
@@ -61,16 +70,13 @@ namespace Latihan1
             }
             finally
             {
-                conn.Close();
             }
         }
-        void CariBarang()
+        public void CariBarang()
         {
             dataGridView1.Rows.Clear();
-            SqlConnection conn = konn.getConn();
             try
             {
-                conn.Open();
                 cmd = new SqlCommand("SELECT * FROM barang WHERE nama_barang LIKE '%' + @namaBarang + '%'", conn);
                 cmd.Parameters.AddWithValue("@namaBarang", textBox7.Text);
                 dr = cmd.ExecuteReader();
@@ -90,6 +96,7 @@ namespace Latihan1
                         row.Cells[8].Value = dr["id_barang"].ToString();
                     }
                 }
+                dr.Close();
             }
             catch (Exception G)
             {
@@ -97,32 +104,31 @@ namespace Latihan1
             }
             finally
             {
-                conn.Close();
             }
         }
         private void Form1_Load(object sender, EventArgs e)
         {
+            conn.Open();
             TampilBarang();
             Bersihkan();
+            combobox();
         }
         private void button1_Click(object sender, EventArgs e)
         {
 
-            if (textBox1.Text.Trim() == "" || textBox2.Text.Trim() == "" || textBox3.Text.Trim() == "" || textBox4.Text.Trim() == "" || textBox5.Text.Trim() == "")
+            if (textBox1.Text.Trim() == "" || textBox2.Text.Trim() == ""  || textBox4.Text.Trim() == "" || textBox5.Text.Trim() == "" || comboBox1.Text.Trim() == "")
             {
                 MessageBox.Show("Data belum lengkap, Silaka cek kembali");
             }
             else
             {
-                SqlConnection conn = konn.getConn();
                 if (button1.Text == "Send")
                 {
                     label6.Text = "Tambah Data";
                     //simpan
                     try
                     {
-                        cmd = new SqlCommand("INSERT INTO barang VALUES ('" + textBox1.Text + "','" + textBox2.Text + "','" + textBox4.Text + "','" + textBox5.Text + "','" + textBox3.Text + "')", conn);
-                        conn.Open();
+                        cmd = new SqlCommand("INSERT INTO barang VALUES ('" + textBox1.Text + "','" + textBox2.Text + "','" + textBox4.Text + "','" + textBox5.Text + "','" + comboBox1.Text + "')", conn);
                         cmd.ExecuteNonQuery();
                         MessageBox.Show("Isert data Berhasil");
                         TampilBarang();
@@ -138,8 +144,7 @@ namespace Latihan1
                 {
                     try
                     {
-                        cmd = new SqlCommand("UPDATE barang SET nama_barang ='" + textBox1.Text + "',stok ='" + textBox2.Text + "',harga_beli ='" + textBox4.Text + "',harga_jual ='" + textBox5.Text + "',satuan ='" + textBox3.Text + "' where id_barang = '" + textBox6.Text + "'", conn);
-                        conn.Open();
+                        cmd = new SqlCommand("UPDATE barang SET nama_barang ='" + textBox1.Text + "',stok ='" + textBox2.Text + "',harga_beli ='" + textBox4.Text + "',harga_jual ='" + textBox5.Text + "',satuan ='" + comboBox1.Text + "' where id_barang = '" + textBox6.Text + "'", conn);
                         cmd.ExecuteNonQuery();
                         MessageBox.Show("Update data Berhasil");
                         TampilBarang();
@@ -153,22 +158,7 @@ namespace Latihan1
                 else
                 {
                     //Hapuss
-                    {
-                        DialogResult dialogResult = MessageBox.Show("Yakin ape buang kah? " + textBox1.Text + "?", "Konfirmasi", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                        try
-                        {
-                            cmd = new SqlCommand("DELETE FROM barang where id_barang = '" + textBox6.Text + "'", conn);
-                            conn.Open();
-                            cmd.ExecuteNonQuery();
-                            MessageBox.Show("Delete data Berhasil");
-                            TampilBarang();
-                            Bersihkan();
-                        }
-                        catch (Exception X)
-                        {
-                            MessageBox.Show(X.ToString());
-                        }
-                    }
+
                 }
 
 
@@ -189,7 +179,7 @@ namespace Latihan1
                     textBox2.Text = row.Cells[2].Value.ToString();
                     textBox4.Text = row.Cells[3].Value.ToString();
                     textBox5.Text = row.Cells[4].Value.ToString();
-                    textBox3.Text = row.Cells[5].Value.ToString();
+                    comboBox1.Text = row.Cells[5].Value.ToString();
                     textBox6.Text = row.Cells[8].Value.ToString();
                     button1.Text = "Update";
                     label6.Text = "Update Kolom";
@@ -199,16 +189,37 @@ namespace Latihan1
                 {
                     //Show Hapuss
                     DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
+                    {
+                        DialogResult dialogResult = MessageBox.Show("Yakin ape buang kah? " + row.Cells[1].Value.ToString() + "?", "Konfirmasi", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        if (dialogResult == DialogResult.Yes)
+                        {
+                            try
+                            {
+                                cmd = new SqlCommand("DELETE FROM barang where id_barang = '" + row.Cells[8].Value.ToString() + "'", conn);
+                                cmd.ExecuteNonQuery();
+                                MessageBox.Show("Delete data Berhasil");
+                                TampilBarang();
+                                Bersihkan();
+                            }
+                            catch (Exception X)
+                            {
+                                MessageBox.Show(X.ToString());
+                            }
+                        }
+                        else if (dialogResult == DialogResult.No)
+                        {
+                        }
+                    }
 
-                    textBox1.Text = row.Cells[1].Value.ToString();
-                    textBox2.Text = row.Cells[2].Value.ToString();
-                    textBox4.Text = row.Cells[3].Value.ToString();
-                    textBox5.Text = row.Cells[4].Value.ToString();
-                    textBox3.Text = row.Cells[5].Value.ToString();
-                    textBox6.Text = row.Cells[8].Value.ToString();
-                    button1.Text = "Delete";
-                    label6.Text = "Hapus Kolom";
-                    button2.Visible = true;
+                    /*    textBox1.Text = row.Cells[1].Value.ToString();
+                        textBox2.Text = row.Cells[2].Value.ToString();
+                        textBox4.Text = row.Cells[3].Value.ToString();
+                        textBox5.Text = row.Cells[4].Value.ToString();
+                        textBox3.Text = row.Cells[5].Value.ToString();
+                        textBox6.Text = row.Cells[8].Value.ToString();
+                        button1.Text = "Delete";
+                        label6.Text = "Hapus Kolom";
+                        button2.Visible = true;*/
                 }
             }
         }
@@ -221,7 +232,27 @@ namespace Latihan1
         private void textBox7_TextChanged(object sender, EventArgs e)
         {
             CariBarang();
-       
+
+        } 
+
+        //diisi angka 
+        private void textBox2_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back;
+        }
+
+        private void textBox4_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back;
+        }
+
+        private void textBox5_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back;
+        }
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            conn.Close();
         }
     }
 }

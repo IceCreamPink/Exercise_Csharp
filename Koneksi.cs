@@ -14,7 +14,7 @@ namespace Latihan1
       public SqlConnection getConn()
         {
             SqlConnection conn = new SqlConnection();
-            conn.ConnectionString ="Data Source = ICECREAMPINK\\SQLEXPRESS; Initial catalog = posDB; Integrated Security = True";
+            conn.ConnectionString = "Data Source = LAPTOP-6NU2B9QC\\SQLEXPRESS; Initial catalog = posDB; Integrated Security = True";
             return conn;
         }
     }
